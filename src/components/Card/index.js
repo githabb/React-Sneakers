@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Card.module.scss";
-console.log(styles);
+
 function Card({ onFavorite, title, imageUrl, price, onPlus }) {
   const [isAdded, setIsAdded] = React.useState(false);
 
@@ -12,7 +12,7 @@ function Card({ onFavorite, title, imageUrl, price, onPlus }) {
   return (
     <div className={styles.card}>
       <div className={styles.favorite} onClick={onFavorite}>
-        <img src="/img/heart-unliked.svg" alt="heart-unliked" />
+        <img src="/img/heart-unliked.svg" alt="Unliked" />
       </div>
 
       <img width={133} height={112} src={imageUrl} alt="sneakers" />

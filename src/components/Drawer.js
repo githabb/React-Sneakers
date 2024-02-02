@@ -8,7 +8,7 @@ function Drawer({ onClose, items = [] }) {
             onClick={onClose}
             className="cu-p"
             src="/img/btn-remove.svg"
-            alt="Remove"
+            alt="Close"
           />
         </h2>
 
