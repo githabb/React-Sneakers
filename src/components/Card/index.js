@@ -3,6 +3,7 @@ import styles from "./Card.module.scss";
 
 function Card({ onFavorite, title, imageUrl, price, onPlus }) {
   const [isAdded, setIsAdded] = React.useState(false);
+  const [isFavorite, setIsFavorite] = React.useState(false);
 
   const onClickPlus = () => {
     onPlus({ title, imageUrl, price });
