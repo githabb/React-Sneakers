@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import Card from "./components/Card";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
@@ -10,16 +11,18 @@ function App() {
   const [cartOpened, setCartOpened] = React.useState(false);
 
   React.useEffect(() => {
-    fetch("https://githabb.github.io/data/items.json")
+    axios.get("https://githabb.github.io/data/items.json").then((res) => {
+      setItems(res.data);
+    });
+    axios
+      .get("https://65b23fcb9bfb12f6eafd44bc.mockapi.io/cart")
       .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        setItems(json);
+        setCartItems(res.data);
       });
   }, []);
 
   const onAddToCart = (obj) => {
+    axios.post("https://65b23fcb9bfb12f6eafd44bc.mockapi.io/cart", obj);
     setCartItems((prev) => [...prev, obj]);
   };
 
